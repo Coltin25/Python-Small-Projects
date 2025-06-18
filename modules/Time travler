@@ -1,0 +1,21 @@
+import datetime as dt
+from decimal import Decimal
+from random import randint, choice
+from custom_module import generate_time_travel_message
+
+# Retrieve current date and time
+date = dt.date.today()
+time = dt.datetime.now().time()
+print(f"Today is {date} {time}")
+
+# Generate random year and destination
+current_year = date.year
+target_year = randint(1600,2300)
+destinations = ['Berlin', 'Paris', 'New York', 'Sedan', 'Washington DC', 'Rome', 'Tokyo', 'Beijing', 'Sydney']
+dest = choice(destinations)
+
+# Calculate cost of time travel
+cost = Decimal(str(abs(1000 + (target_year - current_year) * 300))).quantize(Decimal('0.00'))
+
+# Generate and print time travel message
+print(generate_time_travel_message(target_year, dest, cost))
