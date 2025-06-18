@@ -1,0 +1,41 @@
+weight = 0
+cheapShipping = "Your Cheapest Shipping Option is:"
+#Ground Shipping
+if weight <= 2.0 and weight > 0:
+  cost = 1.50 * weight + 20
+elif weight > 2.0 and weight <= 6.0:
+  cost = 3.00 * weight + 20
+elif weight > 6.0 and weight <=10.0:
+  cost = 4.00 * weight + 20
+elif weight > 10.0:
+  cost = 4.75 * weight + 20
+else:
+  cost = 0
+  print("Invalid weight. Please enter a positive number.")
+
+#Ground Shipping Premium
+premiumCost = 125.00
+
+#Drone Shipping 
+if weight <= 2.0 and weight > 0:
+  droneCost = 4.50 * weight 
+elif weight > 2.0 and weight <= 6.0:
+  droneCost = 9.00 * weight 
+elif weight > 6.0 and weight <= 10.0:
+  droneCost = 12.00 * weight 
+elif weight > 10.0:
+  droneCost = 14.25 * weight 
+else:
+  droneCost = 0
+
+#Cost Comparison for Cheapeset shipping method
+if cost > premiumCost:
+  print(cheapShipping, "Premium Shipping", premiumCost)
+elif cost > droneCost and droneCost < premiumCost:
+  print(cheapShipping, "Drone Shipping", droneCost)
+elif cost == droneCost == premiumCost:
+  print("All shipping methods cost the same.")
+elif cost <= 0 or droneCost <= 0:
+  pass
+else:
+  print(cheapShipping, "Ground Shipping", cost)
